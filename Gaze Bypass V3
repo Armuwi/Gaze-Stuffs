@@ -53,10 +53,10 @@ local UICornerTitle = Instance.new("UICorner")
 
 local UICornerTextBax = Instance.new("UICorner")
 local UICornerChat = Instance.new("UICorner")
-local GazerIcon = Instance.new("ImageLabel") -- Icon beside the title
-local toggleScrollFrameBtn = Instance.new("TextButton") -- Button to toggle scroll frame
+local GazerIcon = Instance.new("ImageLabel") 
+local toggleScrollFrameBtn = Instance.new("TextButton") 
 
-local scrollFrame = Instance.new("ScrollingFrame") -- Scroll frame container
+local scrollFrame = Instance.new("ScrollingFrame") 
 local UICornerToggleBtn = Instance.new("UICorner")
 local UICornerClear = Instance.new("UICorner")
 local UICornerUndo = Instance.new("UICorner")
