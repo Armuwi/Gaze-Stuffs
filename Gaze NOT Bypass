@@ -1,0 +1,370 @@
+if not game:IsLoaded() then
+    game.IsLoaded:Wait()
+end
+
+
+    function makeMessage(message)
+        msg = tostring(message)
+        if game:GetService("TextChatService").TextChannels:FindFirstChild("RBXGeneral") then
+            game:GetService("TextChatService").TextChannels:FindFirstChild("RBXGeneral"):DisplaySystemMessage(msg)
+            else
+        game:GetService("StarterGui"):SetCore(
+            "ChatMakeSystemMessage",
+            {
+                Text = msg,
+                Color = Color3.fromRGB(255, 89, 98),
+                Font = Enum.Font.GothamMedium,
+                FontSize = 16
+            }
+        )
+        end
+    end
+    
+local guiName = "GazeGayUI"
+local coreGay = game:GetService("CoreGui")
+
+
+if not coreGay:FindFirstChild(guiName) then
+   
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = guiName  
+
+    
+    screenGui.Parent = coreGay
+
+    makeMessage("•   Gaze bypass loaded.")
+else
+   
+end
+
+
+local TweenService = game:GetService("TweenService")
+
+local gui = Instance.new("ScreenGui")
+local GazerMain = Instance.new("Frame")
+local GazerTitle = Instance.new("TextLabel")
+local GazerTitle2 = Instance.new("TextLabel")
+local TextBax = Instance.new("TextBox")
+local chat = Instance.new("TextButton")
+local UICornerMain = Instance.new("UICorner")
+local UICornerTitle = Instance.new("UICorner")
+
+local UICornerTextBax = Instance.new("UICorner")
+local UICornerChat = Instance.new("UICorner")
+local GazerIcon = Instance.new("ImageLabel") 
+local toggleScrollFrameBtn = Instance.new("TextButton") 
+
+local scrollFrame = Instance.new("ScrollingFrame") 
+local UICornerToggleBtn = Instance.new("UICorner")
+local UICornerClear = Instance.new("UICorner")
+local UICornerUndo = Instance.new("UICorner")
+
+gui.Name = "GazerGui"
+gui.Parent = cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui") 
+
+
+GazerMain.Size = UDim2.new(0.5, 0, 0.5, 0)
+GazerMain.Position = UDim2.new(0.25, 0, 0.25, 0)
+GazerMain.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+GazerMain.BorderColor3 = Color3.fromRGB(60, 60, 60)
+GazerMain.BorderSizePixel = 1
+GazerMain.Active = true
+GazerMain.Draggable = true
+GazerMain.Parent = gui
+
+
+GazerTitle.Size = UDim2.new(0.85, 0, 0.2, 0) -- Adjust width for icon
+GazerTitle.Position = UDim2.new(0, 0, 0, 0)
+GazerTitle.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+GazerTitle.BorderColor3 = Color3.fromRGB(60, 60, 60)
+GazerTitle.BorderSizePixel = 1
+GazerTitle.Text = "Gaze NOT Bypass"
+GazerTitle.TextSize = 20
+GazerTitle.TextColor3 = Color3.new(1, 1, 1)
+GazerTitle.Font = Enum.Font.Bodoni
+GazerTitle.Parent = GazerMain
+
+
+GazerTitle2.Size = UDim2.new(0.5, 0, 0.1, 0)
+GazerTitle2.Position = UDim2.new(1.1, 0, 0, 0)
+GazerTitle2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+GazerTitle2.BorderColor3 = Color3.fromRGB(60, 60, 60)
+GazerTitle2.BorderSizePixel = 1
+GazerTitle2.Text = "Examples"
+GazerTitle2.TextSize = 20
+GazerTitle2.TextColor3 = Color3.new(1, 1, 1)
+GazerTitle2.Font = Enum.Font.Bodoni
+GazerTitle2.Parent = GazerMain
+
+
+UICornerTitle.CornerRadius = UDim.new(0, 10)
+UICornerTitle.Parent = GazerTitle
+
+
+GazerIcon.Size = UDim2.new(0.15, 0, 0.25, 0)
+GazerIcon.Position = UDim2.new(0.85, 0, 0, 0)
+GazerIcon.Image = "rbxassetid://109127513604501"
+GazerIcon.BackgroundTransparency = 1
+GazerIcon.Parent = GazerMain
+
+
+TextBax.Size = UDim2.new(0.8, 0, 0.2, 0)
+TextBax.Position = UDim2.new(0.1, 0, 0.3, 0)
+TextBax.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextBax.BorderColor3 = Color3.fromRGB(70, 70, 70)
+TextBax.BorderSizePixel = 1
+TextBax.PlaceholderText = "(Chat)"
+TextBax.TextColor3 = Color3.new(1, 1, 1)
+TextBax.Font = Enum.Font.Code
+TextBax.ClearTextOnFocus = true
+TextBax.Text = ""
+TextBax.TextSize = 18
+TextBax.Parent = GazerMain
+
+-- Toggle ScrollFrame Button
+toggleScrollFrameBtn.Size = UDim2.new(0.2, 0, 0.2, 0)
+toggleScrollFrameBtn.Position = UDim2.new(0.70, 0, 0.5, 0)
+toggleScrollFrameBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+toggleScrollFrameBtn.BorderColor3 = Color3.fromRGB(70, 70, 70)
+toggleScrollFrameBtn.Text = "Examples"
+toggleScrollFrameBtn.TextSize = 18
+toggleScrollFrameBtn.TextColor3 = Color3.new(1, 1, 1)
+toggleScrollFrameBtn.Font = Enum.Font.Code
+toggleScrollFrameBtn.Parent = GazerMain
+
+
+-- Adding rounded corners to Toggle Button
+UICornerToggleBtn.CornerRadius = UDim.new(0, 10)
+UICornerToggleBtn.Parent = toggleScrollFrameBtn
+
+
+-- Scroll Frame
+scrollFrame.Size = UDim2.new(0.5, 0, 0.9, 0)
+scrollFrame.Position = UDim2.new(1.1, 0, 0.1, 0)
+scrollFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+scrollFrame.BorderColor3 = Color3.fromRGB(60, 60, 60)
+scrollFrame.BorderSizePixel = 1
+scrollFrame.Visible = true -- Initially hidden
+scrollFrame.Parent = GazerMain
+
+
+scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0) -- We will adjust this as buttons are added
+scrollFrame.ScrollBarThickness = 8
+
+
+toggleScrollFrameBtn.MouseButton1Click:Connect(function()
+    scrollFrame.Visible = not scrollFrame.Visible
+    GazerTitle2.Visible = not GazerTitle2.Visible
+end)
+
+
+
+
+
+local buttonCount = 0
+local function addTextButtonToScrollFrame(text)
+task.wait()
+    buttonCount = buttonCount + 1
+
+    local textButton = Instance.new("TextButton")
+    textButton.Size = UDim2.new(1, -10, 0, 40) -- Full width of scroll frame, height of 40
+    textButton.Position = UDim2.new(0, 5, 0, (buttonCount - 1) * 45) -- Space each button 45 pixels apart
+    textButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    textButton.BorderColor3 = Color3.fromRGB(70, 70, 70)
+    textButton.Text = text
+    textButton.TextScaled = true -- Enable text scaling
+    textButton.TextWrapped = true -- Wrap the text if needed
+    textButton.TextSize = 18
+    textButton.TextColor3 = Color3.new(1, 1, 1)
+    textButton.Font = Enum.Font.Code
+    textButton.Parent = scrollFrame
+
+    
+    textButton.MouseButton1Click:Connect(function()
+        print(TextBax.Text)
+        TextBax.Text = textButton.Text
+    end)
+
+    
+    scrollFrame.CanvasSize = UDim2.new(0, 0, 0, buttonCount * 45)
+end
+
+local buttonLabels = {
+   "here comes the black one 🙄",
+   "im not picky, i like to molest any girl",
+   "i was fingering a female",
+   "and she moans so good.",
+   "i only do anal to girls",
+   "lit this slut up",
+   
+}
+
+for _, label in ipairs(buttonLabels) do
+    addTextButtonToScrollFrame(label)
+    task.wait()
+end
+   
+
+
+chat.Size = UDim2.new(0.3, 0, 0.2, 0)
+chat.Position = UDim2.new(0.35, 0, 0.7, 0)
+chat.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+chat.BorderColor3 = Color3.fromRGB(70, 70, 70)
+chat.BorderSizePixel = 1
+chat.Text = "Chat"
+chat.TextSize = 18
+chat.TextColor3 = Color3.new(1, 1, 1)
+chat.Font = Enum.Font.Code
+chat.Parent = GazerMain
+
+
+UICornerChat.CornerRadius = UDim.new(0, 10)
+UICornerChat.Parent = chat
+
+
+local function createButtonTween(button)
+    local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local goal = {BackgroundColor3 = Color3.fromRGB(100, 100, 100)} -- Change color when clicked
+
+    local tween = TweenService:Create(button, tweenInfo, goal)
+    return tween
+end
+
+local function isEmoji(c)
+    local code = utf8.codepoint(c)  
+
+    
+    if (code >= 0x1F600 and code <= 0x1F64F) or  
+       (code >= 0x1F300 and code <= 0x1F5FF) or  
+       (code >= 0x1F680 and code <= 0x1F6FF) or  
+       (code >= 0x1F700 and code <= 0x1F77F) or  
+       (code >= 0x1F900 and code <= 0x1F9FF) or  
+       (code >= 0x2600 and code <= 0x26FF) or    
+       (code >= 0x2700 and code <= 0x27BF) or    
+       (code >= 0x1F1E6 and code <= 0x1F1FF) then 
+        return true  
+    end
+    return false  
+end
+
+
+
+
+local function modifyText(input)
+    local replacements = {
+        fuck = "####",
+        shit = "####",
+        porn = "####",
+        bitch = "####",
+        nigg = "###",
+        dick = "####",
+        sex = "###",
+        ll = "ll",
+        like = "like",
+        fingering = "f\xD8\x9A\xD8\x9Ai\xD8\x9A\xD8\x9A\xD8\x9An\xD8\x9Age\xD8\x9A\xD8\x9Ar\xD8\x9Ai\xD8\x9An\xD8\x9Ag\xD8\x9A",
+        l = "I",
+        
+        ["0"] = "ï¼",
+        ["1"] = "ï¼‘",
+        ["2"] = "ï¼’",
+        ["3"] = "ï¼“",
+        ["4"] = "ï¼”",
+        ["5"] = "ï¼•",
+        ["6"] = "ï¼–",
+        ["7"] = "ï¼—",
+        ["8"] = "ï¼˜",
+        ["9"] = "ï¼™",
+    }
+
+    local lowerInput = input:lower()
+
+    -- Count non-brace characters
+    local count = 0
+    for i = 1, #input do
+        local char = input:sub(i, i)
+        if char ~= "{" and char ~= "}" then
+            count = count + 1
+        end
+    end
+
+    -- Adjust space insertion based on count
+    local small, medium, high = false, false, false
+    if count < 10 then
+        small = true
+    elseif count >= 10 and count < 15 then
+        medium = true
+    elseif count >= 15 then
+        high = true
+    end
+
+    -- Replace specific words
+    for word, replacement in pairs(replacements) do
+        lowerInput = lowerInput:gsub(word, "{" .. replacement .. "}")
+    end
+
+    -- Handle emojis (assuming isEmoji function is defined elsewhere)
+    local emojiPattern = "[%z\1-\127\194-\244][\128-\191]*"
+    local modifiedInput = lowerInput:gsub(emojiPattern, function(c)
+        if isEmoji(c) then
+            return "{" .. c .. "}"
+        end
+        return c
+    end)
+
+    -- Process characters for the final result
+    local result = ""
+    local insideReplacedWord = false
+
+    for i = 1, #modifiedInput do
+        local char = modifiedInput:sub(i, i)
+
+        if char == "{" then
+            insideReplacedWord = true
+        elseif char == "}" then
+            insideReplacedWord = false
+        elseif insideReplacedWord then
+            result = result .. char
+        elseif char == " " then
+            result = result .. "\b"
+        else
+            result = result .. char
+            
+            if i < #modifiedInput and modifiedInput:sub(i + 1, i + 1) ~= " " then
+                    result = result .. ""
+                end
+            end
+        end
+
+    
+    result = result:gsub("{", ""):gsub("}", "")
+
+    
+    local A_1 = result
+    local A_2 = "All"
+
+    if game:GetService("TextChatService"):FindFirstChild("TextChannels") then
+        game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(A_1)
+    else
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(A_1, A_2)
+    end
+end
+    
+
+    
+    
+    
+
+
+chat.MouseButton1Click:Connect(function()
+    local inputString = TextBax.Text
+    modifyText(inputString)
+
+    
+    local tween = createButtonTween(chat)
+    tween:Play()
+
+    
+    tween.Completed:Connect(function()
+        chat.BackgroundColor3 = Color3.fromRGB(50, 50, 50) 
+    end)
+end)
